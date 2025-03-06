@@ -1,0 +1,45 @@
+<!--app/templates/main/index.html-->
+
+{% extends "base.html" %}
+
+{% block title %}Cost of Living Calculator{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section text-center text-white">
+    <div class="container">
+        <h1 class="display-4 fw-bold">Compare Cost of Living Worldwide</h1>
+        <p class="lead">Make informed decisions before moving to a new city.</p>
+        <a href="{{ url_for('compare.compare') }}" class="btn btn-lg btn-success shadow-lg mt-3">
+            <i class="fas fa-city"></i> Compare Cities
+        </a>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="container mt-5">
+    <div class="row text-center">
+        <div class="col-md-4">
+            <div class="card shadow-sm p-3">
+                <i class="fas fa-money-bill-wave fa-3x text-primary"></i>
+                <h5 class="mt-3">Cost Breakdown</h5>
+                <p>Compare housing, groceries, transportation, healthcare, and more.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow-sm p-3">
+                <i class="fas fa-globe fa-3x text-warning"></i>
+                <h5 class="mt-3">Global Data</h5>
+                <p>Access cost of living data for cities worldwide.</p>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow-sm p-3">
+                <i class="fas fa-chart-line fa-3x text-success"></i>
+                <h5 class="mt-3">Financial Insights</h5>
+                <p>Plan your expenses and budget effectively before relocating.</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
