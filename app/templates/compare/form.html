@@ -1,0 +1,33 @@
+<!--app/templates/compare/form.html-->
+
+{% extends "base.html" %}
+
+{% block title %}Compare Cities{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Select Cities to Compare</h2>
+
+    <!-- Country Selection -->
+    <label for="country">Select Country:</label>
+    <select id="country" class="form-control">
+        <option value="">-- Select Country --</option>
+    </select>
+
+    <!-- State/Province Selection -->
+    <label for="state" class="mt-3">Select State/Province:</label>
+    <select id="state" class="form-control" disabled>
+        <option value="">-- Select State --</option>
+    </select>
+
+    <!-- City Selection -->
+    <label for="city" class="mt-3">Select City:</label>
+    <select id="city" class="form-control" disabled>
+        <option value="">-- Select City --</option>
+    </select>
+
+    <button id="compare-btn" class="btn btn-primary mt-4" disabled>Compare Cities</button>
+</div>
+
+<script src="{{ url_for('static', filename='js/location_selection.js') }}"></script>
+{% endblock %}
