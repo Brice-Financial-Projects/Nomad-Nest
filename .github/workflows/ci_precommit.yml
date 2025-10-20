@@ -1,0 +1,48 @@
+name: 🧹 CI - Pre-commit Lint & Format Check
+
+on:
+  push:
+    branches: [main, dev]
+  pull_request:
+    branches: [main, dev]
+
+jobs:
+  pre-commit:
+    name: ✨ Run Pre-commit Hooks
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1️⃣ Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 2️⃣ Set up Python
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # 3️⃣ Install uv
+      - name: Install uv
+        run: |
+          curl -LsSf https://astral.sh/uv/install.sh | sh
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
+
+      # 4️⃣ Cache uv dependencies
+      - name: Cache uv
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/uv
+          key: uv-${{ runner.os }}-${{ hashFiles('pyproject.toml') }}
+          restore-keys: |
+            uv-${{ runner.os }}-
+
+      # 5️⃣ Sync project dependencies (including dev)
+      - name: Install dependencies
+        run: |
+          uv sync --frozen --all-extras
+
+      # 6️⃣ Run pre-commit hooks
+      - name: Run pre-commit hooks
+        run: |
+          uv run pre-commit run --all-files --show-diff-on-failure

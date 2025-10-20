@@ -1,0 +1,7 @@
+README.md
+pyproject.toml
+src/nomad_nest.egg-info/PKG-INFO
+src/nomad_nest.egg-info/SOURCES.txt
+src/nomad_nest.egg-info/dependency_links.txt
+src/nomad_nest.egg-info/requires.txt
+src/nomad_nest.egg-info/top_level.txt
