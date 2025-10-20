@@ -1,0 +1,22 @@
+# .pre-commit-config.yaml
+repos:
+  # --- Sort imports ---
+  - repo: https://github.com/PyCQA/isort
+    rev: 5.13.2
+    hooks:
+      - id: isort
+        args: ["--profile", "black", "src"]
+
+  # --- Lint & autofix (Ruff) ---
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.6.9
+    hooks:
+      - id: ruff
+        args: ["--fix"]
+
+  # --- Format code (Black) ---
+  - repo: https://github.com/psf/black
+    rev: 24.8.0
+    hooks:
+      - id: black
+        args: ["src", "--line-length", "88"]

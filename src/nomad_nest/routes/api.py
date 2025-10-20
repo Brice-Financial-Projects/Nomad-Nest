@@ -2,14 +2,16 @@
 
 import requests
 from flask import Blueprint, jsonify, request
+
+from nomad_nest.extensions import db
 from nomad_nest.models.city import City
 from nomad_nest.models.state_province import StateProvince
-from nomad_nest.extensions import db
 
 api_bp = Blueprint("api", __name__)
 
 # OpenStreetMap API URL
 OSM_API_URL = "https://nominatim.openstreetmap.org/search"
+
 
 # Fetch cities dynamically
 @api_bp.route("/api/cities", methods=["GET"])
@@ -17,7 +19,9 @@ def get_cities():
     state_id = request.args.get("state_id")
 
     # Check if cities are already cached
-    cached_cities = City.query.filter_by(state_province_id=state_id, is_cached=True).all()
+    cached_cities = City.query.filter_by(
+        state_province_id=state_id, is_cached=True
+    ).all()
     if cached_cities:
         return jsonify([{"id": c.id, "name": c.name} for c in cached_cities])
 
@@ -39,7 +43,7 @@ def get_cities():
             db.session.add(city)
             db.session.commit()
             cities.append({"id": city.id, "name": city.name})
-        
+
         return jsonify(cities)
     else:
         return jsonify({"error": "Failed to fetch cities"}), 500

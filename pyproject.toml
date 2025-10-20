@@ -87,6 +87,9 @@ target-version = ["py310"]
 [tool.isort]
 profile = "black"
 src_paths = ["src"]
+line_length = 88
+combine_as_imports = true
+known_first_party = ["nomad_nest"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
@@ -94,8 +97,11 @@ addopts = "--cov=src --cov-report=term-missing"
 
 [dependency-groups]
 dev = [
+    "isort>=5.6.4",
+    "pre-commit>=4.3.0",
     "pytest>=8.4.2",
     "pytest-cov>=7.0.0",
     "pytest-mock>=3.15.1",
     "ruff>=0.14.1",
 ]
+
