@@ -55,9 +55,11 @@ jobs:
           FLASK_APP: nomad_nest:create_app
           FLASK_ENV: testing
           SECRET_KEY: test_key
+          SQLALCHEMY_DATABASE_URI: "sqlite:///:memory:"
         run: |
           uv run flask routes > /dev/null
           echo "✅ Flask application factory imported successfully"
+      
 
       # 8️⃣ Optional: Quick unit test discovery (no full coverage)
       - name: Run smoke pytest (no coverage)
