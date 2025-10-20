@@ -2,7 +2,6 @@
 
 from flask import Blueprint, render_template, request
 from nomad_nest.models.city import City
-from nomad_nest.extensions import db
 
 compare_bp = Blueprint("compare", __name__)
 
