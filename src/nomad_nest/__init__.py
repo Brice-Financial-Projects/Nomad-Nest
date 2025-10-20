@@ -2,11 +2,11 @@
 
 import os
 from flask import Flask
-from app.config.settings import Config
-from app.extensions import db, migrate
-from app.routes.main import main_bp  # Import the new route
-from app.routes.compare import compare_bp
-from app.routes.api import api_bp
+from nomad_nest.config.settings import Config
+from nomad_nest.extensions import db, migrate
+from nomad_nest.routes.main import main_bp  # Import the new route
+from nomad_nest.routes.compare import compare_bp
+from nomad_nest.routes.api import api_bp
 
 def create_app():
     app = Flask(__name__, template_folder=os.path.abspath("nomad_nest/templates"))

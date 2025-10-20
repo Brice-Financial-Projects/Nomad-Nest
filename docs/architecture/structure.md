@@ -46,11 +46,6 @@ Nomad-Nest/
 │       │   ├── validators.py            # Input validation
 │       │   ├── converters.py            # Currency and unit conversions
 │       │
-│       ├── tests/                       # Unit and integration tests
-│       │   ├── __init__.py
-│       │   ├── test_models.py
-│       │   ├── test_routes.py
-│       │   ├── test_api.py
 │       │
 │       └── __main__.py                  # Optional: run with `python -m app`
 │
@@ -58,6 +53,13 @@ Nomad-Nest/
 │   ├── countryInfo.txt
 │   ├── admin1CodesASCII.txt
 │   ├── sample_city_costs.csv
+│
+├── tests/                               # Unit and integration tests
+│   ├── __init__.py
+│   ├── conftest.py
+│   ├── test_models.py
+│   ├── test_routes.py
+│   ├── test_api.py
 │
 ├── migrations/                          # Alembic/Flask-Migrate database migrations
 │
