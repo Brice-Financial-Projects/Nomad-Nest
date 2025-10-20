@@ -16,7 +16,7 @@ from nomad_nest.routes.main import main_bp  # Import the new route
 
 
 def create_app():
-    app = Flask(__name__, template_folder=os.path.abspath("nomad_nest/templates"))
+    app = Flask(__name__, template_folder="templates", static_folder="static")
     config_name = os.getenv("FLASK_CONFIG", "development").lower()
     config_mapping = {
         "development": DevelopmentConfig,

@@ -1,6 +1,6 @@
 """backend/run.py"""
 
-from app import create_app
+from src.nomad_nest.__init__ import create_app
 
 # Create the nomad_nest instance using the factory function
 app = create_app()
