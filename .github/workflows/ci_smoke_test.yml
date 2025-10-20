@@ -52,7 +52,7 @@ jobs:
       # 7️⃣ Run smoke test (does app start?)
       - name: Run Flask smoke test
         env:
-          FLASK_APP: app:create_app
+          FLASK_APP: nomad_nest:create_app
           FLASK_ENV: testing
           SECRET_KEY: test_key
         run: |
